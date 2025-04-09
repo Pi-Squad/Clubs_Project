@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupNum Clubs - Gestion des clubs étudiants</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <i class="fas fa-users"></i>
+                <span>SupNum Clubs</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-page="home"><i class="fas fa-home"></i> Accueil</a>
+                <a href="#" class="nav-link" data-page="clubs"><i class="fas fa-chess-queen"></i> Clubs</a>
+                <a href="#" class="nav-link" data-page="events"><i class="fas fa-calendar-alt"></i> Événements</a>
+                <a href="#" class="nav-link" data-page="profile"><i class="fas fa-user"></i> Profil</a>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="dashboard">
+            <aside class="sidebar">
+                <h3><i class="fas fa-user-circle"></i> Mes Clubs</h3>
+                <ul class="club-list">
+                    <li><a href="#" class="active"><i class="fas fa-chess"></i> Club d'Échecs</a></li>
+                    <li><a href="#"><i class="fas fa-code"></i> Club Dev Web</a></li>
+                    <li><a href="#"><i class="fas fa-robot"></i> Club Robotique</a></li>
+                    <li><a href="#"><i class="fas fa-paint-brush"></i> Club Art</a></li>
+                    <li><a href="#"><i class="fas fa-plus-circle"></i> Rejoindre un club</a></li>
+                </ul>
+                
+                <h3><i class="fas fa-calendar-check"></i> Événements</h3>
+                <div class="event-item">
+                    <small><strong>12 Oct. 14h</strong></small>
+                    <small>Tournoi d'échecs - Salle B12</small>
+                </div>
+                <div class="event-item">
+                    <small><strong>15-16 Oct.</strong></small>
+                    <small>Hackathon - Labo Info</small>
+                </div>
+            </aside>
+            
+            <!-- Page Accueil -->
+            <main class="main-content page active" id="home">
+                <h1 class="page-title"><i class="fas fa-home"></i> Tableau de bord</h1>
+                <p>Bienvenue sur la plateforme de gestion des clubs de SupNum. Gérez vos clubs et événements en un seul endroit.</p>
+                
+                <h2 class="section-title">Clubs populaires</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <img src="https://source.unsplash.com/random/300x200/?chess" alt="Club d'Échecs" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">Club d'Échecs</h3>
+                            <p class="card-text">Rejoignez notre communauté d'amateurs d'échecs et participez à nos tournois hebdomadaires.</p>
+                            <div class="card-meta">
+                                <span><i class="fas fa-users"></i> 24 membres</span>
+                                <span><i class="fas fa-calendar"></i> 3 événements</span>
+                            </div>
+                            <a href="#" class="btn"><i class="fas fa-eye"></i> Voir détails</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <img src="https://source.unsplash.com/random/300x200/?coding" alt="Club Dev Web" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">Club Dev Web</h3>
+                            <p class="card-text">Ateliers de programmation, hackathons et conférences sur les nouvelles technologies.</p>
+                            <div class="card-meta">
+                                <span><i class="fas fa-users"></i> 45 membres</span>
+                                <span><i class="fas fa-calendar"></i> 5 événements</span>
+                            </div>
+                            <a href="#" class="btn"><i class="fas fa-eye"></i> Voir détails</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <img src="https://source.unsplash.com/random/300x200/?robot" alt="Club Robotique" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">Club Robotique</h3>
+                            <p class="card-text">Conception et programmation de robots pour des compétitions inter-universités.</p>
+                            <div class="card-meta">
+                                <span><i class="fas fa-users"></i> 32 membres</span>
+                                <span><i class="fas fa-calendar"></i> 2 événements</span>
+                            </div>
+                            <a href="#" class="btn"><i class="fas fa-eye"></i> Voir détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">Prochains événements</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <img src="https://source.unsplash.com/random/300x200/?tournament" alt="Tournoi d'échecs" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">Tournoi d'échecs</h3>
+                            <p class="card-text"><i class="far fa-calendar-alt"></i> 12 Octobre 2023 - 14h</p>
+                            <p class="card-text"><i class="fas fa-map-marker-alt"></i> Salle B12, Bâtiment Principal</p>
+                            <div class="card-meta">
+                                <span><i class="fas fa-users"></i> 15 participants</span>
+                            </div>
+                            <a href="#" class="btn btn-accent"><i class="fas fa-check"></i> S'inscrire</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <img src="https://source.unsplash.com/random/300x200/?hackathon" alt="Hackathon" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">Hackathon 2023</h3>
+                            <p class="card-text"><i class="far fa-calendar-alt"></i> 15-16 Octobre 2023</p>
+                            <p class="card-text"><i class="fas fa-map-marker-alt"></i> Labo Informatique, Bâtiment B</p>
+                            <div class="card-meta">
+                                <span><i class="fas fa-users"></i> 8 équipes inscrites</span>
+                            </div>
+                            <a href="#" class="btn btn-accent"><i class="fas fa-check"></i> S'inscrire</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <!-- Page Clubs -->
+            <main class="main-content page" id="clubs">
+                <h1 class="page-title"><i class="fas fa-chess-queen"></i> Tous les Clubs</h1>
+                <p>Découvrez tous les clubs disponibles à SupNum et rejoignez ceux qui vous intéressent.</p>
+                
+                <div class="cards-grid">
+                    <!-- Les clubs seront chargés dynamiquement via JavaScript -->
+                </div>
+            </main>
+            
+            <!-- Page Événements -->
+            <main class="main-content page" id="events">
+                <h1 class="page-title"><i class="fas fa-calendar-alt"></i> Événements</h1>
+                <p>Découvrez tous les événements organisés par les clubs de SupNum.</p>
+                
+                <div class="cards-grid">
+                    <!-- Les événements seront chargés dynamiquement via JavaScript -->
+                </div>
+            </main>
+            
+            <!-- Page Profil -->
+            <main class="main-content page" id="profile">
+                <h1 class="page-title"><i class="fas fa-user"></i> Mon Profil</h1>
+                <p>Gérez vos informations personnelles et vos abonnements aux clubs.</p>
+                
+                <div class="profile-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); max-width: 600px; margin: 2rem auto;">
+                    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div style="width: 80px; height: 80px; border-radius: 50%; background-color: var(--light-gray); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--primary);">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h2 style="color: var(--primary); margin-bottom: 0.2rem;">John Doe</h2>
+                            <p style="color: var(--gray);">Étudiant en Informatique</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <h3 style="color: var(--secondary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-id-card"></i> Informations
+                        </h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div>
+                                <p><strong>Email:</strong> john.doe@supnum.com</p>
+                                <p><strong>Téléphone:</strong> +212 6 12 34 56 78</p>
+                            </div>
+                            <div>
+                                <p><strong>Promotion:</strong> 2023</p>
+                                <p><strong>Spécialité:</strong> Développement Web</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 style="color: var(--secondary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-users"></i> Mes Clubs
+                        </h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                            <span style="background-color: rgba(58, 12, 163, 0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">
+                                Club d'Échecs
+                            </span>
+                            <span style="background-color: rgba(58, 12, 163, 0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">
+                                Club Dev Web
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="#"><i class="fas fa-info-circle"></i> À propos</a>
+            <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="#"><i class="fas fa-shield-alt"></i> Confidentialité</a>
+            <a href="#"><i class="fas fa-question-circle"></i> Aide</a>
+        </div>
+        <p>&copy; 2023 SupNum Clubs. Tous droits réservés.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
