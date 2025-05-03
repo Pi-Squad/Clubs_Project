@@ -1,215 +1,76 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion des Clubs à SupNum</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="dashboard.css">
-    <script src="script.js" defer></script>
-    <script src="js/modals.js" defer></script>
-</head>
-<body>
-    <header>
-        <div class="logo-container">
-            <img src="https://www.supnum.mr/sites/default/files/logo-supnum2.png" alt="SupNum Logo" class="logo">
-            <h1>Gestion des Clubs à SupNum</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Tableau de bord</a></li>
-                <li><a href="pages/clubs.html">Clubs</a></li>
-                <li><a href="pages/events.html">Événements</a></li>
-                <li><a href="pages/members.html">Membres</a></li>
-                <li><a href="pages/settings.html">Paramètres</a></li>
-            </ul>
-        </nav>
-        <div class="user-menu">
-            <img src="/api/placeholder/40/40" alt="User Profile" class="avatar">
-            <div class="dropdown">
-                <span class="username">Admin SupNum</span>
-                <div class="dropdown-content">
-                    <a href="pages/profile.html">Mon Profil</a>
-                    <a href="pages/settings.html">Paramètres</a>
-                    <a href="#" id="logout-btn">Déconnexion</a>
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <main>
-        <div class="dashboard-header">
-            <h2>Tableau de bord</h2>
-            <p>Bienvenue sur la plateforme de gestion des clubs SupNum. Supervisez vos clubs et événements en un seul endroit.</p>
-        </div>
-        
-        <div class="statistics">
-            <div class="stat-card">
-                <div class="stat-icon club-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div class="stat-content">
-                    <h3>Clubs Actifs</h3>
-                    <div class="stat-value">12</div>
-                    <p>Clubs enregistrés</p>
-                </div>
-                <div class="stat-footer">
-                    <button class="btn btn-primary" onclick="openModal('addClubModal')">Ajouter</button>
-                </div>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-icon member-icon">
-                    <i class="fas fa-user-graduate"></i>
-                </div>
-                <div class="stat-content">
-                    <h3>Membres</h3>
-                    <div class="stat-value">247</div>
-                    <p>Étudiants participants</p>
-                </div>
-                <div class="stat-footer">
-                    <a href="pages/members.html" class="btn btn-primary">Gérer</a>
-                </div>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-icon event-icon">
-                    <i class="fas fa-calendar-alt"></i>
-                </div>
-                <div class="stat-content">
-                    <h3>Événements</h3>
-                    <div class="stat-value">8</div>
-                    <p>Pour le mois prochain</p>
-                </div>
-                <div class="stat-footer">
-                    <a href="pages/events.html" class="btn btn-primary">Voir tous</a>
-                </div>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-icon budget-icon">
-                    <i class="fas fa-money-bill"></i>
-                </div>
-                <div class="stat-content">
-                    <h3>Budget Total</h3>
-                    <div class="stat-value">15 000 €</div>
-                    <p>Budget annuel alloué</p>
-                </div>
-                <div class="stat-footer">
-                    <a href="pages/finance.html" class="btn btn-primary">Détails</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="dashboard-sections">
-            <div class="section recent-clubs">
-                <div class="section-header">
-                    <h2>Clubs récents</h2>
-                    <a href="pages/clubs.html" class="view-all">Voir tous</a>
-                </div>
-                
-                <div class="club-list" id="recentClubList">
-                    <!-- Club items will be loaded by JavaScript -->
-                </div>
-            </div>
-            
-            <div class="section upcoming-events">
-                <div class="section-header">
-                    <h2>Événements à venir</h2>
-                    <a href="pages/events.html" class="view-all">Voir tous</a>
-                </div>
-                
-                <div class="event-list" id="upcomingEventsList">
-                    <!-- Event items will be loaded by JavaScript -->
-                </div>
-            </div>
-        </div>
-    </main>
-    
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>SupNum Club Management</h3>
-                <p>Plateforme de gestion des clubs et associations étudiantes</p>
-            </div>
-            <div class="footer-section">
-                <h3>Liens rapides</h3>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="pages/clubs.html">Clubs</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: clubs@supnum.edu</p>
-                <p>Téléphone: +33 1 23 45 67 89</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 SupNum. Tous droits réservés.</p>
-        </div>
-    </footer>
-    
-    <!-- Modals -->
-    <div id="addClubModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Ajouter un nouveau club</h2>
-                <span class="close-modal" onclick="closeModal('addClubModal')">&times;</span>
-            </div>
-            
-            <div class="modal-body">
-                <form id="clubForm">
-                    <div class="form-group">
-                        <label for="clubName">Nom du club</label>
-                        <input type="text" id="clubName" name="clubName" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="clubCategory">Catégorie</label>
-                        <select id="clubCategory" name="clubCategory" required>
-                            <option value="">Sélectionner une catégorie</option>
-                            <option value="technology">Technologie</option>
-                            <option value="culture">Culture</option>
-                            <option value="sports">Sports</option>
-                            <option value="arts">Arts</option>
-                            <option value="science">Science</option>
-                            <option value="other">Autre</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="clubDescription">Description</label>
-                        <textarea id="clubDescription" name="clubDescription" rows="4" required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="clubPresident">Président(e) du club</label>
-                        <input type="text" id="clubPresident" name="clubPresident" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="clubEmail">Email de contact</label>
-                        <input type="email" id="clubEmail" name="clubEmail" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="clubLogo">Logo du club</label>
-                        <input type="file" id="clubLogo" name="clubLogo" accept="image/*">
-                    </div>
-                    
-                    <div class="modal-actions">
-                        <button type="button" class="btn btn-secondary" onclick="closeModal('addClubModal')">Annuler</button>
-                        <button type="submit" class="btn btn-primary">Sauvegarder</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    
-    <div id="loadingOverlay" class="loading-overlay">
-        <div class="spinner"></div>
-    </div>
-</body>
-</html>
+ <html lang="en">
+   <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link
+       rel="stylesheet"
+       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+     />
+     <link rel="stylesheet" href="style.css" />
+     <title>Login Page | Caged coder</title>
+   </head>
+ 
+   <body>
+     <div class="container" id="container">
+       <div class="form-container sign-up">
+         <form>
+           <h1>Create Account</h1>
+           <div class="social-icons">
+             <a href="#" class="icon"
+               ><i class="fa-brands fa-google-plus-g"></i
+             ></a>
+             <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+             <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+             <a href="#" class="icon"
+               ><i class="fa-brands fa-linkedin-in"></i
+             ></a>
+           </div>
+           <span>or use your email for registeration</span>
+           <input type="text" placeholder="Name" />
+           <input type="email" placeholder="Email" />
+           <input type="password" placeholder="Password" />
+           <button>Sign Up</button>
+         </form>
+       </div>
+       <div class="form-container sign-in">
+         <form>
+           <h1>Sign In</h1>
+           <div class="social-icons">
+             <a href="#" class="icon"
+               ><i class="fa-brands fa-google-plus-g"></i
+             ></a>
+             <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+             <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+             <a href="#" class="icon"
+               ><i class="fa-brands fa-linkedin-in"></i
+             ></a>
+           </div>
+           <span>or use your email password</span>
+           <input type="email" placeholder="Email" />
+           <input type="password" placeholder="Password" />
+           <a href="#">Forget Your Password?</a>
+           <button>Sign In</button>
+         </form>
+       </div>
+       <div class="toggle-container">
+         <div class="toggle">
+           <div class="toggle-panel toggle-left">
+             <h1>Welcome Back!</h1>
+             <p>Enter your personal details to use all of site features</p>
+             <button class="hidden" id="login">Sign In</button>
+           </div>
+           <div class="toggle-panel toggle-right">
+             <h1>Hello, Friend!</h1>
+             <p>
+               Register with your personal details to use all of site features
+             </p>
+             <button class="hidden" id="register">Sign Up</button>
+           </div>
+         </div>
+       </div>
+     </div>
+ 
+     <script src="script.js"></script>
+   </body>
+ </html>
