@@ -1,0 +1,44 @@
+body {
+  display: flex;
+  background-color: #f9fafb;
+  font-family: 'Segoe UI', sans-serif;
+}
+.sidebar {
+  width: 220px;
+  background-color: #1e40af;
+  color: white;
+  padding: 1rem;
+}
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.sidebar a {
+  color: #bfdbfe;
+  text-decoration: none;
+  display: block;
+  margin: 10px 0;
+}
+.sidebar a.active {
+  color: #fff;
+  font-weight: bold;
+}
+.content {
+  flex: 1;
+  padding: 2rem;
+}
+.dashboard-cards {
+  display: flex;
+  gap: 1rem;
+}
+.card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-left: 6px solid #3b82f6;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+  flex: 1;
+}
+.card-clubs { border-color: #60a5fa; }
+.card-evenements { border-color: #34d399; }
+.card-profil { border-color: #c084fc; }
